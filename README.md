@@ -39,4 +39,5 @@ Print the classification report.
 
 ## Answer the following question: 
 How well does the logistic regression model predict both the 0 (healthy loan) and 1 (high-risk loan) labels?
+The model is excellent at detecting healthy loans, and pretty good at detecting high-risk loans, but some false positives and false negatives still occur for high-risk predictions. If your priority is minimizing risk (catching all high-risk loans), the recall of 0.91 is solid but could potentially be improved further.
 
