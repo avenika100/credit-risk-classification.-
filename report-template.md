@@ -1,14 +1,43 @@
-# Module 12 Report Template
+# Module 12 Analysis Report 
 
 ## Overview of the Analysis
+The purpose of this analysis was to build and evaluate machine learning models that can predict the loan status of applicants — whether they are a high-risk or low-risk borrower. This type of prediction is critical for financial institutions to minimize losses and maximize profitable lending decisions.
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
+The dataset included financial features such as loan amount, interest rate, borrower income, debt-to-income ratio, and more.
+The main objective was to predict the loan_status label, where:
 
-* Explain the purpose of the analysis.
-* Explain what financial information the data was on, and what you needed to predict.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-* Describe the stages of the machine learning process you went through as part of this analysis.
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any other algorithms).
+0 = Low risk
+
+1 = High risk
+
+Basic information about the target variable (loan_status):
+-     loan_status.value_counts()
+
+Sample distribution:
+
+   * Low Risk (0): Majority
+
+   * High Risk (1): Minority
+
+This suggests an imbalanced classification problem, which can impact model performance.
+
+The machine learning process included:
+
+Loading and inspecting the dataset.
+
+Splitting the data into features (X) and target labels (y).
+
+Dividing the data into training and testing sets.
+
+Training two models:
+
+Logistic Regression
+
+Random Forest Classifier
+
+Evaluating the models using confusion matrices and classification reports.
+
+
 
 ## Results
 
