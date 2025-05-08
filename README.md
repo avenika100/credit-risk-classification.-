@@ -3,41 +3,54 @@
 ## Background
 In this Challenge, you’ll use various techniques to train and evaluate a model based on loan risk. You’ll use a dataset of historical lending activity from a peer-to-peer lending services company to build a model that can identify the creditworthiness of borrowers.
 
-## Instructions
-The instructions for this Challenge are divided into the following subsections:
+## Overview of the Analysis
 
-Split the Data into Training and Testing Sets
+The purpose of this analysis was to evaluate the risk level of loans using a machine learning classification model. Specifically, the goal was to predict whether a loan would be “healthy” or “high risk” based on several financial features provided in the dataset.
 
-Create a Logistic Regression Model with the Original Data
+Financial Information & Prediction Target:
+The dataset contained financial data related to loan applicants, such as income, debt-to-income ratio, and number of accounts. The target variable (loan_status) was a binary classification: 0 for high-risk loans and 1 for healthy loans.
 
-Write a Credit Risk Analysis Report
+Value Counts of Target Variable:
+The loan_status field was split between two classes. A value_counts() would typically show the distribution of 1s and 0s, which is important for understanding any class imbalance (though this wasn't printed in the notebook).
 
-Split the Data into Training and Testing Sets
-Open the starter code notebook and use it to complete the following steps:
+Stages of the Machine Learning Process:
 
-Read the lending_data.csv data from the Resources folder into a Pandas DataFrame.
+Data Preparation: The target (y) and feature variables (X) were separated.
 
-Create the labels set (y) from the “loan_status” column, and then create the features (X) DataFrame from the remaining columns.
+Train-Test Split: The data was split into training and testing sets using train_test_split with a random_state of 1.
 
-## note
-A value of 0 in the “loan_status” column means that the loan is healthy. A value of 1 means that the loan has a high risk of defaulting.
+Model Selection: Logistic Regression was chosen as the classification model.
 
-Split the data into training and testing datasets by using train_test_split.
+Model Training: The model was trained on the training set.
 
-Create a Logistic Regression Model with the Original Data
-Use your knowledge of logistic regression to complete the following steps:
+Model Evaluation: Predictions were made on the test set, and a confusion matrix and classification report were generated to evaluate performance.
 
-Fit a logistic regression model by using the training data (X_train and y_train).
+Algorithm Used:
+The algorithm used in this challenge was Logistic Regression, a common method for binary classification tasks.
 
-Save the predictions for the testing data labels by using the testing feature data (X_test) and the fitted model.
+Results
+Machine Learning Model 1: Logistic Regression
 
-Evaluate the model’s performance by doing the following:
+Accuracy: 0.95
 
-Generate a confusion matrix.
+Precision:
 
-Print the classification report.
+Class 0 (high risk): 0.85
 
-## Answer the following question: 
-How well does the logistic regression model predict both the 0 (healthy loan) and 1 (high-risk loan) labels?
-The model is excellent at detecting healthy loans, and pretty good at detecting high-risk loans, but some false positives and false negatives still occur for high-risk predictions. If your priority is minimizing risk (catching all high-risk loans), the recall of 0.91 is solid but could potentially be improved further.
+Class 1 (healthy): 0.96
 
+Recall:
+
+Class 0 (high risk): 0.68
+
+Class 1 (healthy): 0.99
+
+## Summary
+Best Performing Model:
+Since only one model was used (Logistic Regression), it is the default choice for recommendation. It shows high accuracy and strong performance in predicting healthy loans (class 1) with a recall of 0.99, which means it rarely misses a healthy loan.
+
+Performance Consideration:
+The model performs better at predicting healthy loans than high-risk loans, as evidenced by the lower recall (0.68) for class 0. This suggests that the model may not be as effective at flagging risky loans, which could be a concern if the goal is to minimize financial loss by catching high-risk cases.
+
+## Recommendation:
+Logistic Regression can be used if the goal is to maximize the identification of healthy loans. However, if identifying high-risk loans is more critical, it may be necessary to try other models or improve class balance techniques (e.g., SMOTE or reweighting).
